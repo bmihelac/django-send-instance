@@ -12,12 +12,12 @@ class BaseEmailInstance(object):
             body=None, to=None, cc=None, bcc=None, from_email=None,
             attachments=None, **kwargs):
         self.object = obj
-        self.subject = subject
+        self.subject = subject or getattr(self, 'SUBJECT', None)
         self.body = body
         self.to = to
         self.cc = cc
-        self.bcc = bcc
-        self.from_email = from_email
+        self.bcc = bcc or getattr(self, 'BCC', None)
+        self.from_email = from_email or getattr(self, 'FROM_EMAIL', None)
         self.attachments = attachments
         self.kwargs = kwargs
 
