@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.utils.html import strip_tags
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 
 
 class BaseEmailInstance(object):
@@ -29,6 +30,7 @@ class BaseEmailInstance(object):
     def get_from_email(self):
         if not self.from_email:
             return settings.DEFAULT_FROM_EMAIL
+        return self.from_email
 
     def get_attachments(self):
         return self.attachments
@@ -79,7 +81,7 @@ class TemplateEmailMixin(object):
 
     def get_template_names(self):
         """
-        Return a list of template names to be used. 
+        Return a list of template names to be used.
         Returns the following list:
 
         * the value of ``template_name`` (if provided)
@@ -88,7 +90,7 @@ class TemplateEmailMixin(object):
         """
         names = []
         if self.template_name:
-            names.append(template_name)
+            names.append(self.template_name)
 
         if isinstance(self.object, models.Model):
             names.append("%s/emails/%s%s.html" % (
