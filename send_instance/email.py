@@ -16,7 +16,7 @@ class BaseEmailInstance(object):
         self.body = body
         self.to = to
         self.cc = cc
-        self.bcc = bcc or getattr(self, 'BCC', None)
+        self.bcc = bcc if bcc is not None else getattr(self, 'BCC', None)
         self.from_email = from_email or getattr(self, 'FROM_EMAIL', None)
         self.attachments = attachments
         self.kwargs = kwargs
