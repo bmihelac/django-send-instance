@@ -58,4 +58,4 @@ exists to render email content.
 Templatetag ``render_fields`` can be used to influence which fields to render::
 
   {% load send_instance_tags %}
-  {% render_fields object exclude="author_email,ID" %}
+  {% render_fields object exclude="author_email,id" %}
