@@ -22,5 +22,7 @@ setup(
     author_email="bmihelac@mihelac.org",
     url="https://github.com/bmihelac/django-send-instance",
     packages=find_packages(exclude=["example", "example.*"]),
+    include_package_data=True,
+    zip_safe=False,
 )
 

@@ -1,0 +1,6 @@
+include README.rst
+include MANIFEST.in
+include tests.py
+include runtests.sh
+recursive-include send_instance *.py
+recursive-include send_instance/templates *
