@@ -76,8 +76,17 @@ class BaseMultipartEmail(BaseEmailInstance):
 
 
 class TemplateEmailMixin(object):
-    template_name_suffix = ''
     template_name = None
+    template_name_suffix = ''
+
+    def __init__(self, *args, **kwargs):
+        template_name_suffix = kwargs.pop('template_name_suffix', None)
+        template_name = kwargs.pop('template_name', None)
+        if template_name:
+            self.template_name = template_name
+        if template_name_suffix:
+            self.template_name_suffix = template_name_suffix
+        super(TemplateEmailMixin, self).__init__(*args, **kwargs)
 
     def get_template_names(self):
         """
