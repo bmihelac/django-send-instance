@@ -16,7 +16,7 @@ You need to add it to your ``INSTALLED_APPS``:
     # settings.py
     INSTALLED_APPS = (
         ...
-        'send-instance',
+        'send_instance',
     )
     
 Usage
