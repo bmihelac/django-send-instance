@@ -4,6 +4,24 @@ django-send-instance
 
 django-send-instance makes it easy to send Django model instances.
 
+Installation and configuration
+------------------------------
+
+    $ pip install -e git+https://github.com/bmihelac/django-send-instance.git#egg=django-send-instance
+
+You need to add it to your ``INSTALLED_APPS``:
+
+.. code-block:: python
+
+    # settings.py
+    INSTALLED_APPS = (
+        ...
+        'send-instance',
+    )
+    
+Usage
+-----
+
 Examples::
 
     # create book instance
@@ -59,3 +77,4 @@ Templatetag ``render_fields`` can be used to influence which fields to render::
 
   {% load send_instance_tags %}
   {% render_fields object exclude="author_email,id" %}
+
