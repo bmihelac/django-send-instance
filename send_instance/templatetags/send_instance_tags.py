@@ -1,3 +1,4 @@
+import django
 from django import template
 
 register = template.Library()
@@ -15,7 +16,10 @@ def render_fields(obj, include=None, exclude=None):
 
     fields = []
     for field_name in field_names:
-        name = obj._meta.get_field_by_name(field_name)[0].verbose_name
+        if django.VERSION > (1, 9):
+            name = obj._meta.get_field(field_name).verbose_name
+        else:
+            name = obj._meta.get_field_by_name(field_name)[0].verbose_name
         display_method = 'get_%s_display' % field_name
         if hasattr(obj, display_method):
             value = getattr(obj, display_method)()
