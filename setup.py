@@ -10,6 +10,7 @@ CLASSIFIERS = [
     'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
     'Topic :: Software Development',
+    'Programming Language :: Python :: 3',
 ]
 
 setup(
@@ -24,5 +25,8 @@ setup(
     packages=find_packages(exclude=["example", "example.*"]),
     include_package_data=True,
     zip_safe=False,
+    install_requires=[
+        'Django>=3.2,<4',
+    ],
 )
 

@@ -1,1 +1,1 @@
-django-admin.py test core --settings=settings --pythonpath=tests
+PYTHONPATH=tests DJANGO_SETTINGS_MODULE=tests.settings django-admin.py test core

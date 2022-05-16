@@ -5,5 +5,5 @@ class Book(models.Model):
     name = models.CharField('Book name', max_length=100)
     author_email = models.EmailField('Author email', max_length=75)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name

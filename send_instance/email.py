@@ -22,7 +22,7 @@ class BaseEmailInstance(object):
         self.kwargs = kwargs
 
     def get_subject(self):
-        return self.subject or unicode(self.object)
+        return self.subject or str(self.object)
 
     def get_body(self):
         return self.body
