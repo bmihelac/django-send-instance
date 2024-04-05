@@ -26,7 +26,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Django>=3.2,<4',
+        'Django>=3.2,<5',
     ],
 )
 
